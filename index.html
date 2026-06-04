@@ -1,0 +1,619 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muhammad Haseeb | Software Engineer</title>
+    
+    <!-- Bootstrap 5 CDN CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-offset="120">
+
+    <!-- 1. Sticky Navigation Bar -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="main-nav">
+      <div class="container">
+        <a class="navbar-brand" href="#home" id="nav-brand">
+          <span>Muhammad</span>Haseeb
+        </a>
+        <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <i data-lucide="menu" style="width: 24px; height: 24px; color: #1E293B;"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home" id="nav-link-home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about" id="nav-link-about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills" id="nav-link-skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects" id="nav-link-projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience" id="nav-link-experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact" id="nav-link-contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 2. Hero Section -->
+    <header id="home" class="hero">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-7 order-2 order-lg-1">
+            <div class="hero-content">
+              <p class="hero-subtitle text-uppercase">Welcome to my workspace</p>
+              <h1 class="hero-title" id="main-hero-title">
+                I'm Muhammad Haseeb<br>
+                <span class="typed-text" id="typed-text"></span><span class="typed-cursor">|</span>
+              </h1>
+              <p class="hero-desc" id="hero-introduction">
+                I am a Software Engineering student at SZABIST with a strong passion for web development. I enjoy building user-friendly websites, solving programming challenges, and creating modern web applications using HTML, CSS, Bootstrap, JavaScript, PHP, and MySQL.
+              </p>
+              <div class="d-flex flex-wrap gap-3 mt-4" id="hero-actions">
+                <a href="#projects" class="btn btn-primary d-inline-flex align-items-center gap-2">
+                  <i data-lucide="folder-git-2" style="width: 18px; height: 18px;"></i> View Projects
+                </a>
+                <a href="#contact" class="btn btn-outline-primary d-inline-flex align-items-center gap-2">
+                  <i data-lucide="mail-search" style="width: 18px; height: 18px;"></i> Contact Me
+                </a>
+                <button type="button" class="btn btn-secondary d-inline-flex align-items-center gap-2" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                  <i data-lucide="file-text" style="width: 18px; height: 18px;"></i> View Resume
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-5 order-1 order-lg-2 text-center">
+            <div class="hero-image-container" id="hero-img-box">
+              <div class="hero-image-bg"></div>
+              <img src="./WhatsApp Image 2026-06-04 at 3.46.15 AM.jpeg" alt="img" class="hero-profile-image" referrerPolicy="no-referrer" id="profile-img">
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. About Me Section -->
+    <section id="about" class="bg-white">
+      <div class="container">
+        <div class="row align-items-center gy-5">
+          <div class="col-lg-6 scroll-reveal" id="about-intro-col">
+            <div class="pe-xl-5">
+              <h2 class="section-title">About Me</h2>
+              
+              <p class="text-secondary-emphasis mb-4">
+                I am a motivated Software Engineering student currently pursuing my BS Software Engineering degree at SZABIST. I am passionate about web development and continuously learning modern technologies to improve my skills. I enjoy creating responsive websites, developing practical software solutions, and working on projects that enhance user experience. My goal is to gain professional experience, contribute to meaningful projects, and grow as a software developer.
+              </p>
+              
+              <div class="row gy-3 mt-2" id="about-pillars">
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="text-primary"><i data-lucide="zap" style="width: 18px; height: 18px;"></i></span>
+                    <strong class="text-dark">Web Development</strong>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="text-primary"><i data-lucide="globe-2" style="width: 18px; height: 18px;"></i></span>
+                    <strong class="text-dark">Problem Solving</strong>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="text-primary"><i data-lucide="layout-grid" style="width: 18px; height: 18px;"></i></span>
+                    <strong class="text-dark">UI/UX Design</strong>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="d-flex align-items-center gap-2">
+                    <span class="text-primary"><i data-lucide="shield-check" style="width: 18px; height: 18px;"></i></span>
+                    <strong class="text-dark">Team Collaboration</strong>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 scroll-reveal" id="about-stats-col">
+            <div class="about-card">
+              <h3 class="mb-4 text-center display-font fs-4">Career Achievements & Strengths</h3>
+              
+              <div class="row text-center mt-4">
+                <div class="col-4 stat-box">
+                  <div class="stat-label">Student</div>
+                </div>
+                <div class="col-4 stat-box">
+                  <div class="stat-label">Multiple Academic Projects</div>
+                </div>
+                <div class="col-4 stat-box">
+                  <div class="stat-label">Continuous Learning</div>
+                </div>
+              </div>
+              
+              <hr class="my-4 border-light-subtle">
+              
+              <div class="about-details">
+                <h4 class="fs-6 text-uppercase text-muted fw-bold mb-3">Summary</h4>
+                <p class="small text-secondary mb-3">
+                  <strong>Career Objective:</strong> To secure an opportunity in a professional organization where I can apply my academic knowledge, enhance my technical skills, gain practical experience, and contribute to meaningful software development projects.
+                </p>
+                <p class="small text-secondary mb-0">
+                  <strong>Education:</strong> BS Software Engineering – SZABIST (2023–2027)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Skills Section -->
+    <section id="skills" class="bg-light">
+      <div class="container">
+        <div class="text-center scroll-reveal" id="skills-section-header">
+          <h2 class="section-title mx-auto d-table">Technical Competencies</h2>
+          <p class="section-subtitle mx-auto">My technical skills, tools, and technologies that I use to build modern, responsive, and user-friendly web applications.</p>
+        </div>
+        
+        <div class="row g-4 justify-content-center" id="skills-grid">
+          <!-- Skill 1 -->
+          <div class="col-lg-3 col-md-6 col-sm-10 scroll-reveal" style="transition-delay: 0.3s;">
+            <div class="skill-card" id="skill-box-cloud">
+              <div class="skill-icon-wrap">
+                <i data-lucide="cloud-lightning"></i>
+              </div>
+              <h3 class="skill-title">Programming Languages</h3>
+              <p class="skill-desc">HTML5, CSS3, JavaScript, PHP, Laravel, SQL.</p>
+            </div>
+          </div>
+
+          <!-- Skill 2 -->
+          <div class="col-lg-3 col-md-6 col-sm-10 scroll-reveal">
+            <div class="skill-card" id="skill-box-languages">
+              <div class="skill-icon-wrap">
+                <i data-lucide="code-2"></i>
+              </div>
+              <h3 class="skill-title">Frontend Development</h3>
+              <p class="skill-desc">Responsive websites using HTML, CSS, Bootstrap, and JavaScript, React, TypeScript.</p>
+            </div>
+          </div>
+          
+          <!-- Skill 3 -->
+          <div class="col-lg-3 col-md-6 col-sm-10 scroll-reveal" style="transition-delay: 0.1s;">
+            <div class="skill-card" id="skill-box-frontend">
+              <div class="skill-icon-wrap">
+                <i data-lucide="panels-top-left"></i>
+              </div>
+              <h3 class="skill-title">Databases</h3>
+              <p class="skill-desc">MySQL database design, queries, and data management.</p>
+            </div>
+          </div>
+          
+          <!-- Skill 4 -->
+          <div class="col-lg-3 col-md-6 col-sm-10 scroll-reveal" style="transition-delay: 0.2s;">
+            <div class="skill-card" id="skill-box-backend">
+              <div class="skill-icon-wrap">
+                <i data-lucide="hard-drive"></i>
+              </div>
+              <h3 class="skill-title">Tools & Software</h3>
+              <p class="skill-desc">Visual Studio Code, GitHub, Figma, and development tools.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Dynamic Projects Section -->
+    <section id="projects" class="bg-white">
+      <div class="container">
+        <div class="text-center scroll-reveal" id="projects-section-header">
+          <h2 class="section-title mx-auto d-table">Recent Case Studies</h2>
+          <p class="section-subtitle mx-auto">Dynamic showcase dynamically loaded from underlying portfolio configurations.</p>
+        </div>
+        
+        <!-- Projects Render grid container -->
+        <div class="row g-4" id="projects-container">
+          <div class="col-12 text-center py-5">
+            <span class="spinner-border spinner-border-sm text-primary" role="status" aria-hidden="true"></span>
+            <p class="text-secondary mt-2">Compiling project configurations...</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Experience & Certifications -->
+    <section id="experience" class="bg-light">
+      <div class="container">
+        <div class="row gy-5">
+          <div class="col-lg-6 scroll-reveal" id="timeline-work-col">
+            <h2 class="section-title">Professional Journey</h2>
+            
+            <div class="timeline mt-4" id="work-timeline">
+              <!-- student -->
+              <div class="timeline-item" id="student">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">BS Software Engineering</h3>
+                  <div class="timeline-org">SZABIST</div>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="calendar" class="me-1" style="width: 12px; height: 12px;"></i> 2026 - Present
+                </div>
+                <div class="timeline-body">
+                  Currently pursuing a Bachelor's degree in Software Engineering with focus on software development, databases, and web technologies.
+                </div>
+              </div>
+              
+              <!-- other courses-->
+              <div class="timeline-item" id="other-courses">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Personal Projects & Learning</h3>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="calendar" class="me-1" style="width: 12px; height: 12px;"></i>2026 - Present
+                </div>
+                <div class="timeline-body">
+                  Building web applications, learning modern development technologies, and improving practical programming skills through academic and personal projects.
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-lg-6 scroll-reveal" id="timeline-credentials-col">
+            <h2 class="section-title">Certifications & Honors</h2>
+            
+            <div class="timeline mt-4" id="certs-timeline">
+              <!-- Cert 1 -->
+              <div class="timeline-item" id="cert-1">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Home Automation with Arduino and Bluetooth</h3>
+                  <div class="timeline-org">SZABIST</div>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="award" class="me-1" style="width: 12px; height: 12px;"></i> Certified September 2023
+                </div>
+              </div>
+              
+              <!-- Cert 2 -->
+              <div class="timeline-item" id="cert-2">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Proficiency in Information Systems Management</h3>
+                  <div class="timeline-org">Aptech Learning</div>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="award" class="me-1" style="width: 12px; height: 12px;"></i> Certified July 2023
+                </div>
+              </div>
+              <!-- Cert 3 -->
+              <div class="timeline-item" id="cert-3">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Google Prompting Essentials</h3>
+                  <div class="timeline-org">Google Career Certificates</div>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="award" class="me-1" style="width: 12px; height: 12px;"></i> Certified October 16, 2025
+                </div>
+              </div>
+              <!-- Cert 4 -->
+              <div class="timeline-item" id="cert-4">
+                <div class="timeline-dot"></div>
+                <div class="timeline-header">
+                  <h3 class="timeline-title">Foundations of User Experience (UX) Design</h3>
+                  <div class="timeline-org">Google Career Certificates</div>
+                </div>
+                <div class="timeline-meta">
+                  <i data-lucide="award" class="me-1" style="width: 12px; height: 12px;"></i> Certified October 25, 2025
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Contact Section -->
+    <section id="contact" class="bg-white">
+      <div class="container">
+        <div class="text-center scroll-reveal" id="contact-section-header">
+          <h2 class="section-title mx-auto d-table">Get In Touch</h2>
+          <p class="section-subtitle mx-auto">Feel free to contact me for collaboration, internships, projects, or professional opportunities.</p>
+        </div>
+        
+        <div class="row g-4 mt-2">
+          <!-- Contact metadata details column -->
+          <div class="col-lg-5 scroll-reveal" id="contact-info-col">
+            <div class="contact-info-card" id="contact-sidebar">
+              <h3 class="mb-4 display-font fs-4">Contact Directives</h3>
+              <p class="text-secondary small mb-4">
+                Reach out directly via secure secure line terminals or dispatch a portal form inquiry here. Available for contract mandates and engineering consultation.
+              </p>
+              
+              <div class="contact-methods">
+                <!-- Location -->
+                <div class="contact-method" id="contact-method-loc">
+                  <div class="contact-icon">
+                    <i data-lucide="map-pin"></i>
+                  </div>
+                  <div>
+                    <div class="contact-label">Primary Hub</div>
+                    <div class="contact-value">Hyderabad, Sindh, Pakistan</div>
+                  </div>
+                </div>
+                
+                <!-- Email -->
+                <div class="contact-method" id="contact-method-email">
+                  <div class="contact-icon">
+                    <i data-lucide="mail"></i>
+                  </div>
+                  <div>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value"><a href="mailto:haseebmughal016@gmail.com">haseebmughal016@gmail.com</a></div>
+                  </div>
+                </div>
+                
+                <!-- Phone -->
+                <div class="contact-method" id="contact-method-phone">
+                  <div class="contact-icon">
+                    <i data-lucide="phone-call"></i>
+                  </div>
+                  <div>
+                    <div class="contact-label">Direct Communication</div>
+                    <div class="contact-value">03171064904</div>
+                  </div>
+                </div>
+                
+                <!-- Github link with SVG -->
+                <div class="contact-method" id="contact-method-git">
+                  <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+                  </div>
+                  <div>
+                    <div class="contact-label">GitHub Interface</div>
+                    <div class="contact-value"><a href="https://github.com/Haseebmughaal" target="_blank">github.com/Haseebmughaal</a></div>
+                  </div>
+                </div>
+                
+                <!-- LinkedIn link with SVG -->
+                <div class="contact-method" id="contact-method-linkedin">
+                  <div class="contact-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+                  </div>
+                  <div>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">
+                      <a href="https://www.linkedin.com/in/haseeb-m-657aaa24a" target="_blank">
+                        linkedin.com/in/haseeb-m-657aaa24a
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Contact Form column -->
+          <div class="col-lg-7 scroll-reveal" id="contact-form-col">
+            <div class="contact-form-card">
+              <form id="contactForm" novalidate>
+                <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="contactName">Your Name</label>
+                      <input type="text" class="form-control" id="contactName" placeholder="Haseeb" required>
+                    </div>
+                  </div>
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="form-label" for="contactEmail">Your Email</label>
+                      <input type="email" class="form-control" id="contactEmail" placeholder="haseeb@example.com" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactSubject">Subject</label>
+                  <input type="text" class="form-control" id="contactSubject" placeholder="What's this about?" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="contactMessage">Send Message</label>
+                  <textarea class="form-control" id="contactMessage" placeholder="Tell me about your project or idea..." required></textarea>
+                </div>
+                <div class="text-end">
+                  <button type="submit" class="btn btn-primary d-inline-flex align-items-center gap-2" id="contactSubmitBtn">
+                    Submit Dispatch <i data-lucide="send-horizontal" style="width: 16px; height: 16px;"></i>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Footer -->
+    <footer>
+      <div class="container">
+        <div class="row align-items-center gy-4 text-center text-md-start">
+          <div class="col-md-6" id="footer-branding">
+            <a class="footer-brand" href="#home">
+              <span>Muhammad</span>Haseeb
+            </a>
+            <p class="small text-white-emphasis mt-2 mb-0">Software Engineering Student | Web Developer | Passionate About Building Modern Web Applications</p>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center justify-content-md-end" id="footer-socials-box">
+            <div class="social-links">
+              <a href="https://github.com/Haseebmughaal" target="_blank" class="social-icon" title="GitHub">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/haseeb-m-657aaa24a" target="_blank" class="social-icon" title="LinkedIn">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide-icon"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+              </a>
+              <a href="mailto:haseebmughal016@gmail.com" class="social-icon" title="Email">
+                <i data-lucide="mail"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4 border-white-emphasis opacity-25">
+        <div class="row text-center text-sm-start text-white-emphasis small">
+          <div class="col-sm-6">
+            &copy; 2026 Muhammad Haseeb. All rights reserved.
+          </div>
+          <div class="col-sm-6 text-sm-end mt-2 mt-sm-0">
+            Powered by Tailwind & Bootstrap Design Systems
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Interactive On-Screen Resume Modal -->
+    <div class="modal fade" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-scrollable">
+        <div class="modal-content border-0 shadow" style="border-radius: 16px;">
+          <!-- Modal Header -->
+          <div class="modal-header bg-white border-bottom-0 py-3 px-4 d-flex align-items-center justify-content-between">
+            <h5 class="modal-title display-font text-dark fs-5 fw-bold" id="resumeModalLabel">
+              <span class="text-primary"><i data-lucide="user-round" class="me-2" style="display:-webkit-inline-box;"></i></span>Candidate Dossier
+            </h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-light px-4 py-4">
+
+            <!-- Stored PDF resume template (dynamic) -->
+            <div id="resumePDFTemplate" class="d-none">
+              <div class="bg-white border rounded-4 p-4 shadow-sm text-center mb-4">
+                <div class="mb-3 text-primary">
+                  <i data-lucide="file-text" style="width: 48px; height: 48px; margin: 0 auto; display: block;"></i>
+                </div>
+                <h4 class="text-dark fw-bold mb-2">CV</h4>
+                <div class="d-flex justify-content-center gap-2">
+                  <a href="#" id="btnDownloadResumePDF" class="btn btn-primary d-inline-flex align-items-center gap-2 px-4 py-2" download="Resume.pdf">
+                    <i data-lucide="download" style="width: 16px; height: 16px;"></i> Download Resume File
+                  </a>
+                  <a href="#" id="btnOpenResumePDF" class="btn btn-outline-primary d-inline-flex align-items-center gap-2 px-4 py-2" target="_blank">
+                    <i data-lucide="external-link" style="width: 16px; height: 16px;"></i> Open in New Tab
+                  </a>
+                </div>
+              </div>
+              
+              <!-- PDF Preview Object (supported on modern browsers) -->
+              <div class="bg-white border rounded-4 p-2 shadow-sm overflow-hidden" style="height: 550px;">
+                <object id="resumePDFObject" type="application/pdf" width="100%" height="100%" class="rounded">
+                  <div class="p-4 text-center">
+                    <p class="text-muted small mb-0">PDF rendering preview is not fully supported on your local screen configuration. Please use the buttons above to view and download your PDF resume.</p>
+                  </div>
+                </object>
+              </div>
+            </div>
+          </div>
+          <!-- Modal Footer with action buttons -->
+          <div class="modal-footer bg-white border-top-0 py-3 px-4 d-flex justify-content-between">
+            <button type="button" class="btn btn-secondary shadow-none border" data-bs-dismiss="modal">Close Overlay</button>
+            <button type="button" class="btn btn-primary d-inline-flex align-items-center gap-2" onclick="window.print()">
+              <i data-lucide="printer" style="width: 16px; height: 16px;"></i> Print Document / Save PDF
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9. Interactive Project Detail Modal -->
+    <div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="projectDetailLabel" aria-hidden="true" style="backdrop-filter: blur(8px);">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden;">
+          <div class="modal-header border-bottom-0 bg-white pt-4 px-4 d-flex justify-content-between align-items-center">
+            <h5 class="modal-title display-font text-dark fs-5 fw-bold" id="projectDetailLabel">
+              Project Specification Case
+            </h5>
+            <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body bg-white px-4 pb-4">
+            <!-- Image Slider Presentation Carousel -->
+            <div id="projectDetailCarousel" class="carousel slide mb-4 rounded-4 overflow-hidden shadow-sm" style="background-color: #F8FAFC;">
+              <div class="carousel-indicators" id="projectDetailIndicators"></div>
+              <div class="carousel-inner" id="projectDetailSlides" style="height: 380px; min-height: 250px;">
+                <!-- Slides injected here dynamically -->
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#projectDetailCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon p-3 bg-dark bg-opacity-25 rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#projectDetailCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon p-3 bg-dark bg-opacity-25 rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+            <!-- Context Specification Info -->
+            <div class="project-detail-info">
+              <div class="d-flex flex-wrap justify-content-between align-items-center mb-3">
+                <h3 class="display-font text-dark mb-0 fs-4 fw-bold" id="projectDetailTitle">Project Title</h3>
+                <span class="badge bg-light text-primary border border-primary-subtle px-3 py-1.5 fw-semibold" id="carouselImageCounter">1 of 1 Images</span>
+              </div>
+              
+              <div class="mb-3" id="projectDetailBadges">
+                <!-- Badges dynamically added -->
+              </div>
+
+              <div class="mb-4">
+                <h6 class="text-uppercase text-muted fw-bold small mb-2 text-dark font-heading">Conceptual Architecture & Description</h6>
+                <p class="text-secondary mb-0 leading-relaxed fs-95" id="projectDetailDesc">Detailed analytical summary of project outputs.</p>
+              </div>
+
+              <!-- Integration links / Local preview warning notice -->
+              <div class="p-3 bg-light border border-light-subtle rounded-3 mb-4">
+                <div class="row align-items-center gy-2">
+                  <div class="col-sm-8 text-secondary fs-85">
+                    <span class="text-warning-emphasis fw-bold"><i class="fs-6 me-1" style="display:inline-block; vertical-align:middle; line-height:1;"><span class="material-symbols-outlined align-middle fs-6" style="font-size: 1.1rem;">info</span></i> Local Portfolio Presentation State</span>
+                    <br>All design elements and offline specifications can be browsed without visiting standard server endpoints.
+                  </div>
+                  <div class="col-sm-4 text-center text-sm-end">
+                    <span class="badge bg-secondary-subtle text-secondary border border-secondary px-2.5 py-1.5 fs-75 rounded-pill uppercase font-mono">Mock Environment</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="d-flex flex-wrap gap-2" id="projectDetailLinks">
+                <!-- Injected Link actions -->
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light border-top-0 px-4 py-3 d-flex justify-content-end">
+            <button type="button" class="btn btn-secondary border shadow-none" data-bs-dismiss="modal">Close Showcase</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <button id="back-to-top" class="back-to-top" aria-label="Scroll back to top" title="Scroll back to top">
+      <i data-lucide="arrow-up" style="width: 20px; height: 20px;"></i>
+    </button>
+
+    <!-- Lucide Elements Loader via CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      // Initialize Lucide icons on boot
+      lucide.createIcons();
+    </script>
+    
+    <!-- Bootstrap 5 JS CDN bundle is included -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- Custom Script -->
+    <script src="./script.js" defer></script>
+  </body>
+</html>

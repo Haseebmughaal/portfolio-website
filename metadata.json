@@ -1,0 +1,6 @@
+{
+  "name": "Portfolio Website",
+  "description": "A professional, modern, and fully responsive portfolio website with dynamic project loading, smooth scrolling, and an interactive light theme.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
