@@ -97,7 +97,7 @@ async function loadProjects() {
   // Always fetch projects.json as base, then merge admin-added projects from localStorage
   let jsonProjects = [];
   try {
-    const response = await fetch('./projects.json');
+    const response = await fetch('./projects.json?v=' + Date.now());
     if (response.ok) {
       jsonProjects = await response.json();
     }
