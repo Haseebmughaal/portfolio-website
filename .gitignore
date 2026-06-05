@@ -6,4 +6,6 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Exclude the admin panel from git repository entirely
 admin.html
