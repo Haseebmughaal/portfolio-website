@@ -92,29 +92,37 @@ async function loadProjects() {
   if (!container) return;
 
   let rawProjects = [];
+  window._portfolioProjects = [];
   
   // Load user-defined projects from local database, fallback to projects.json if empty
+  // Always fetch projects.json as base, then merge admin-added projects from localStorage
+  let jsonProjects = [];
+  try {
+    const response = await fetch('./projects.json?v=' + Date.now());
+    if (response.ok) {
+      jsonProjects = await response.json();
+    }
+  } catch (error) {
+    console.warn("Failed fetching projects.json database.", error);
+  }
+
+  // Load admin-added projects from localStorage
   const stored = localStorage.getItem('haseeb_projects');
+  let storedProjects = [];
   if (stored) {
     try {
-      rawProjects = JSON.parse(stored);
+      storedProjects = JSON.parse(stored);
     } catch (e) {
       console.warn("Corrupted portfolio database storage.", e);
     }
   }
 
-  if (!rawProjects || rawProjects.length === 0) {
-    try {
-      const response = await fetch('./projects.json');
-      if (response.ok) {
-        rawProjects = await response.json();
-      }
-    } catch (error) {
-      console.warn("Failed fetching projects.json database.", error);
-    }
-    // Save to localStorage for client-side persistence
-    localStorage.setItem('haseeb_projects', JSON.stringify(rawProjects || []));
-  }
+  // Filter out any stored projects that duplicate json projects by title
+  const jsonTitles = jsonProjects.map(p => p.title);
+  const adminProjects = storedProjects.filter(p => !jsonTitles.includes(p.title));
+
+  // Merge: admin-added first, then json projects
+  rawProjects = [...adminProjects, ...jsonProjects];
   
   // Render projects HTML template
   container.innerHTML = '';
@@ -134,6 +142,7 @@ async function loadProjects() {
     return;
   }
 
+  window._portfolioProjects = rawProjects;
   rawProjects.forEach((proj, idx) => {
     const col = document.createElement('div');
     col.className = 'col-lg-4 col-md-6 col-12 mb-4 scroll-reveal';
@@ -186,7 +195,7 @@ async function loadProjects() {
  * Handle Single Case Project Detail presentation Modal with Carousel
  */
 window.openProjectDetails = function(index) {
-  const allProjects = JSON.parse(localStorage.getItem('haseeb_projects')) || [];
+  const allProjects = window._portfolioProjects || JSON.parse(localStorage.getItem('haseeb_projects')) || [];
   const proj = allProjects[index];
   if (!proj) return;
 
