@@ -479,7 +479,8 @@ function initAdminPanel() {
         return;
       }
 
-      if (currentLoadedImages.length === 0) {
+      const isEditing = !isNaN(parseInt(addProjectForm.dataset.editingIndex, 10));
+      if (currentLoadedImages.length === 0 && !isEditing) {
         showCustomNotification('Please select at least 1 image.');
         return;
       }
@@ -502,7 +503,24 @@ function initAdminPanel() {
         demo: demo || undefined
       };
 
-      allProjects.unshift(newProject);
+const editingIndex = parseInt(addProjectForm.dataset.editingIndex, 10);
+      if (!isNaN(editingIndex) && editingIndex >= 0) {
+        // Edit mode — keep old images if none uploaded
+        if (currentLoadedImages.length === 0) {
+          newProject.images = allProjects[editingIndex].images;
+        }
+        allProjects[editingIndex] = newProject;
+        delete addProjectForm.dataset.editingIndex;
+        const submitBtn = addProjectForm.querySelector('button[type="submit"]');
+        if (submitBtn) {
+          submitBtn.innerHTML = `<i data-lucide="plus-circle" style="width: 18px; height: 18px;"></i> Append Project to Portfolio`;
+          if (window.lucide) window.lucide.createIcons();
+        }
+      } else {
+        // Add mode
+        allProjects.unshift(newProject);
+      }
+
       try {
         localStorage.setItem('haseeb_projects', JSON.stringify(allProjects));
       } catch (err) {
@@ -516,11 +534,15 @@ function initAdminPanel() {
       currentLoadedImages = [];
       thumbnailIndex = 0;
       renderImagePreviews();
-      
+
       // Update UI panels instantly!
       loadProjects();
       renderAdminProjectsList();
-      showCustomNotification('Dynamic Case Project added to portfolio!');
+      showCustomNotification(
+        !isNaN(editingIndex) && editingIndex >= 0
+          ? `Project "${title}" updated successfully!`
+          : 'Dynamic Case Project added to portfolio!'
+      );
     });
   }
 
@@ -588,6 +610,9 @@ function renderAdminProjectsList() {
           <h5 class="small font-heading text-dark text-truncate mb-0 fw-bold">${proj.title}</h5>
           <span class="text-muted d-block" style="font-size: 0.725rem;">${imageCount} image${imageCount !== 1 ? 's' : ''} • ${proj.technologies.slice(0, 2).join(', ')}</span>
         </div>
+        <button type="button" class="btn btn-outline-primary btn-sm border-0 px-2 py-1 btn-edit-proj" data-index="${idx}" title="Edit project">
+          <i data-lucide="pencil" style="width: 14px; height: 14px; pointer-events: none;"></i>
+        </button>
         <button type="button" class="btn btn-outline-danger btn-sm border-0 px-2 py-1 btn-delete-proj" data-index="${idx}" title="Delete project">
           <i data-lucide="trash-2" style="width: 14px; height: 14px; pointer-events: none;"></i>
         </button>
@@ -595,7 +620,7 @@ function renderAdminProjectsList() {
     `;
   }).join('');
 
-  // Bind click event listeners directly to the buttons
+// Bind delete buttons
   const deleteBtns = container.querySelectorAll('.btn-delete-proj');
   deleteBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -604,6 +629,19 @@ function renderAdminProjectsList() {
       const index = parseInt(btn.getAttribute('data-index'), 10);
       if (typeof window.deleteProjectFromAdmin === 'function') {
         window.deleteProjectFromAdmin(index);
+      }
+    });
+  });
+
+  // Bind edit buttons
+  const editBtns = container.querySelectorAll('.btn-edit-proj');
+  editBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const index = parseInt(btn.getAttribute('data-index'), 10);
+      if (typeof window.editProjectFromAdmin === 'function') {
+        window.editProjectFromAdmin(index);
       }
     });
   });
@@ -624,10 +662,37 @@ window.deleteProjectFromAdmin = function(idx) {
   allProjects.splice(idx, 1);
   localStorage.setItem('haseeb_projects', JSON.stringify(allProjects));
 
-  // Re-build UI instantly
   loadProjects();
   renderAdminProjectsList();
   showCustomNotification(`Deleted project "${originalTitle}" successfully`);
+};
+
+/**
+ * Handle edit triggered from Admin Row — pre-fills the left form
+ */
+window.editProjectFromAdmin = function(idx) {
+  const allProjects = JSON.parse(localStorage.getItem('haseeb_projects')) || [];
+  if (idx < 0 || idx >= allProjects.length) return;
+
+  const proj = allProjects[idx];
+
+  document.getElementById('adminProjTitle').value = proj.title || '';
+  document.getElementById('adminProjDesc').value = proj.description || '';
+  document.getElementById('adminProjTech').value = (proj.technologies || []).join(', ');
+  document.getElementById('adminProjGithub').value = proj.github || '';
+  document.getElementById('adminProjDemo').value = proj.demo || '';
+
+  const form = document.getElementById('adminAddProjectForm');
+  form.dataset.editingIndex = idx;
+
+  const submitBtn = form.querySelector('button[type="submit"]');
+  if (submitBtn) {
+    submitBtn.innerHTML = `<i data-lucide="save" style="width: 18px; height: 18px;"></i> Save Changes`;
+    if (window.lucide) window.lucide.createIcons();
+  }
+
+  showCustomNotification(`Editing "${proj.title}" — update fields and click Save Changes.`);
+  form.scrollIntoView({ behavior: 'smooth', block: 'start' });
 };
 
 /**
