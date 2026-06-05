@@ -94,27 +94,34 @@ async function loadProjects() {
   let rawProjects = [];
   
   // Load user-defined projects from local database, fallback to projects.json if empty
+  // Always fetch projects.json as base, then merge admin-added projects from localStorage
+  let jsonProjects = [];
+  try {
+    const response = await fetch('./projects.json');
+    if (response.ok) {
+      jsonProjects = await response.json();
+    }
+  } catch (error) {
+    console.warn("Failed fetching projects.json database.", error);
+  }
+
+  // Load admin-added projects from localStorage
   const stored = localStorage.getItem('haseeb_projects');
+  let storedProjects = [];
   if (stored) {
     try {
-      rawProjects = JSON.parse(stored);
+      storedProjects = JSON.parse(stored);
     } catch (e) {
       console.warn("Corrupted portfolio database storage.", e);
     }
   }
 
-  if (!rawProjects || rawProjects.length === 0) {
-    try {
-      const response = await fetch('./projects.json');
-      if (response.ok) {
-        rawProjects = await response.json();
-      }
-    } catch (error) {
-      console.warn("Failed fetching projects.json database.", error);
-    }
-    // Save to localStorage for client-side persistence
-    localStorage.setItem('haseeb_projects', JSON.stringify(rawProjects || []));
-  }
+  // Filter out any stored projects that duplicate json projects by title
+  const jsonTitles = jsonProjects.map(p => p.title);
+  const adminProjects = storedProjects.filter(p => !jsonTitles.includes(p.title));
+
+  // Merge: admin-added first, then json projects
+  rawProjects = [...adminProjects, ...jsonProjects];
   
   // Render projects HTML template
   container.innerHTML = '';
