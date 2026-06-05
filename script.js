@@ -719,7 +719,7 @@ function initContactForm() {
       `;
     }
     
-    const savedKey = localStorage.getItem('haseeb_web3_key');
+    const savedKey = localStorage.getItem('haseeb_web3_key') || 'ba28a97b-32fb-4daa-8961-00b87f2204d3';
 
     if (savedKey) {
       // Real Web3Forms Submission
@@ -934,7 +934,7 @@ function initResumeManager() {
 
   let currentBlobUrl = null;
 
-  const updateResumeViews = () => {
+const updateResumeViews = () => {
     const savedPDF = localStorage.getItem('haseeb_resume_pdf');
     
     // Revoke old blob URL to prevent memory leaks
@@ -952,8 +952,13 @@ function initResumeManager() {
       if (btnOpen) btnOpen.href = currentBlobUrl;
       if (pdfObject) pdfObject.setAttribute('data', currentBlobUrl);
     } else {
-      if (defaultTemplate) defaultTemplate.classList.remove('d-none');
-      if (pdfTemplate) pdfTemplate.classList.add('d-none');
+      // No custom PDF — fall back to the committed static PDF
+      if (defaultTemplate) defaultTemplate.classList.add('d-none');
+      if (pdfTemplate) pdfTemplate.classList.remove('d-none');
+      const staticPDF = './Muhammad Haseeb CV.pdf';
+      if (btnDownload) btnDownload.href = staticPDF;
+      if (btnOpen) btnOpen.href = staticPDF;
+      if (pdfObject) pdfObject.setAttribute('data', staticPDF);
     }
 
     // Update Admin Panel status controls
@@ -966,7 +971,7 @@ function initResumeManager() {
       if (btnClear) btnClear.style.display = 'inline-block';
     } else {
       if (statusDiv) {
-        statusDiv.innerHTML = `<i data-lucide="info" style="width: 13px; height: 13px;"></i> Currently using the default text dossier`;
+        statusDiv.innerHTML = `<i data-lucide="info" style="width: 13px; height: 13px;"></i> Currently using the default static PDF`;
       }
       if (btnClear) btnClear.style.display = 'none';
     }
@@ -1019,14 +1024,13 @@ function initResumeManager() {
     btnClear.addEventListener('click', () => {
       localStorage.removeItem('haseeb_resume_pdf');
       updateResumeViews();
-      showCustomNotification('Custom PDF resume cleared. Reverted to default dossier.');
+      showCustomNotification('Custom PDF resume cleared. Reverted to default static PDF.');
     });
   }
 
   // Initial render on boot
   updateResumeViews();
 }
-
 /**
  * Manage Web3Forms Access Key and validation
  */
@@ -1036,7 +1040,7 @@ function initWeb3FormsManager() {
   const statusDiv = document.getElementById('adminWeb3Status');
 
   const updateWeb3Status = () => {
-    const savedKey = localStorage.getItem('haseeb_web3_key');
+    const savedKey = localStorage.getItem('haseeb_web3_key') || 'ba28a97b-32fb-4daa-8961-00b87f2204d3';
     if (keyInput) {
       keyInput.value = savedKey || '';
     }
@@ -1057,7 +1061,7 @@ function initWeb3FormsManager() {
       const key = keyInput ? keyInput.value.trim() : '';
       if (!key) {
         localStorage.removeItem('haseeb_web3_key');
-        showCustomNotification('Access key cleared. Reverted to simulation mode.');
+        showCustomNotification('Access key cleared. Reverted to default key.');
       } else {
         localStorage.setItem('haseeb_web3_key', key);
         showCustomNotification('Web3Forms Access Key saved successfully!');
