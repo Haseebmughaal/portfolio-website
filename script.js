@@ -502,7 +502,7 @@ function initAdminPanel() {
 
       const techArray = technologiesText.split(',').map(t => t.trim()).filter(Boolean);
 
-      const allProjects = JSON.parse(localStorage.getItem('haseeb_projects')) || [];
+      const allProjects = window._portfolioProjects || JSON.parse(localStorage.getItem('haseeb_projects')) || [];
       const newProject = {
         title,
         description,
