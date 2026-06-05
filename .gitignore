@@ -6,4 +6,5 @@ coverage/
 *.log
 .env*
 !.env.example
-admin.html
+# Allow tracking of administrative setup
+# admin.html is safely verified on the frontend and custom settings reside in browser-specific localStorage.
