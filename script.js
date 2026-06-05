@@ -92,6 +92,7 @@ async function loadProjects() {
   if (!container) return;
 
   let rawProjects = [];
+  window._portfolioProjects = [];
   
   // Load user-defined projects from local database, fallback to projects.json if empty
   // Always fetch projects.json as base, then merge admin-added projects from localStorage
@@ -141,6 +142,7 @@ async function loadProjects() {
     return;
   }
 
+  window._portfolioProjects = rawProjects;
   rawProjects.forEach((proj, idx) => {
     const col = document.createElement('div');
     col.className = 'col-lg-4 col-md-6 col-12 mb-4 scroll-reveal';
@@ -193,7 +195,7 @@ async function loadProjects() {
  * Handle Single Case Project Detail presentation Modal with Carousel
  */
 window.openProjectDetails = function(index) {
-  const allProjects = JSON.parse(localStorage.getItem('haseeb_projects')) || [];
+  const allProjects = window._portfolioProjects || JSON.parse(localStorage.getItem('haseeb_projects')) || [];
   const proj = allProjects[index];
   if (!proj) return;
 
