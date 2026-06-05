@@ -745,12 +745,12 @@ function initContactForm() {
           showCustomNotification("Message dispatched successfully directly to Haseeb's inbox!");
           form.reset();
         } else {
-          showCustomNotification("Message could not be delivered. Please email me directly at muhammdhaseeb160@gmail.com");
+          showCustomNotification("Message could not be delivered. Please email me directly at haseebmughal016@gmail.com");
         }
       })
       .catch((error) => {
         console.error(error);
-        showCustomNotification("Delivery failed. Please email me directly at muhammdhaseeb160@gmail.com");
+        showCustomNotification("Delivery failed. Please email me directly at haseebmughal016@gmail.com");
       })
       .finally(() => {
         if (submitBtn) {
