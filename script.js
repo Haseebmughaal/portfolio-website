@@ -731,6 +731,7 @@ function initContactForm() {
         },
         body: JSON.stringify({
           access_key: savedKey,
+          botcheck: false,
           name: nameVal,
           email: emailVal,
           subject: subjectVal,
@@ -740,16 +741,16 @@ function initContactForm() {
       })
       .then(async (response) => {
         const json = await response.json();
-        if (response.ok) {
+        if (response.ok && json.success) {
           showCustomNotification("Message dispatched successfully directly to Haseeb's inbox!");
           form.reset();
         } else {
-          showCustomNotification(json.message || "Failed to deliver. Please check your Web3Forms Access Key in Admin Panel.");
+          showCustomNotification("Message could not be delivered. Please email me directly at muhammdhaseeb160@gmail.com");
         }
       })
       .catch((error) => {
         console.error(error);
-        showCustomNotification("Delivery failed. Running in demo mode fallback.");
+        showCustomNotification("Delivery failed. Please email me directly at muhammdhaseeb160@gmail.com");
       })
       .finally(() => {
         if (submitBtn) {
